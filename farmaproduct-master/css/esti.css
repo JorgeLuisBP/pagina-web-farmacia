@@ -1,0 +1,28 @@
+body {
+	
+
+	font-family: monospace;
+}
+
+h1 {
+	color: #fff;
+	text-align: center;
+}
+h3{
+	font-family: monospace;
+}
+strong{
+		text-align: center;
+	color: #482f2f;
+}
+
+.ul1{
+	display: inline-block;
+	text-align: right;
+	list-style: none ;
+	float: right;
+	font-family: Roboto, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+	font-weight: normal;
+	font-style: normal;
+	color: black;
+  }

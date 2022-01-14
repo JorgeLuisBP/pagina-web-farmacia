@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+   <head>
+	 <meta charset="utf-8">
+    <title>usuario</title>
+     <link href="css/estilore.css" rel="stylesheet">
+   <link href="css/esti.css" rel="stylesheet">
+   
+   
+   <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+   
+   <script>
+     
+     var config = {
+    apiKey: "AIzaSyCmvaJbqQ28hzyt3AqfFtEEuLPe3_xI5_0",
+    authDomain: "matricula-alumnos.firebaseapp.com",
+    databaseURL: "https://matricula-alumnos.firebaseio.com",
+    projectId: "matricula-alumnos",
+    storageBucket: "matricula-alumnos.appspot.com",
+    messagingSenderId: "973755164597"
+  };
+  firebase.initializeApp(config);
+ var database = firebase.database();
+       window.addEventListener('load',function(){
+           
+           let consultar= document.querySelector('#btnconsultar');
+           let guardar1= document.querySelector('#btnguardar');
+             
+
+
+              let tipo= document.querySelector('#tipo');
+              
+           let periodo= document.querySelector('#Periodo'); 
+           
+           let horario= document.querySelector('#horario'); 
+           let mcedula1= document.querySelector('#mcedula');
+           
+          
+           document.querySelector('#btnconsultar').addEventListener('click',function(){
+                let cedula1= document.querySelector('#txtcedula1');
+                let cedula12= document.querySelector('#clavetxt');
+               
+               firebase.database().ref('/turno/'+cedula1.value).on('value',function(resultado) { 
+                 
+                let objetoRespuesta1= resultado.val() 
+                if (objetoRespuesta1==null) {alert("Usuario Incorrecta");}
+                         else if (objetoRespuesta1.clave==cedula12.value) {
+
+                          mcedula1.value=objetoRespuesta1.cedula; 
+                          
+
+                         }else{
+
+                           alert("Clave Incorrecta");
+                         }
+        
+            
+           });
+           });
+
+         guardar1.addEventListener('click',function(){
+               firebase.database().ref('solicitudes/'+ mcedula1.value ).set({
+                         
+               cedula: mcedula1.value,
+               tipo: tipo.value,
+                periodo: periodo.value, 
+          
+            horario: horario.value 
+                            
+                
+               })
+               mcedula1.value="",
+                   tipo.value="",
+                   
+               alert("Datos correctamente Guardado");
+           });  
+
+
+
+           
+       })
+
+   </script> 
+
+</head>
+
+
+
+
+ <body background="imag/bg.gif">
+  
+         <div class="container">
+         	 <div class="header">
+                  <img src="imag/img1.jpg" alt="">
+                 
+            </div>
+            
+             <ul class="menu">
+                 <a href="index.html" class="bo"><img src="imag/regresar.gif"width="150x" height="100px" border="1px"></a>
+                     </ul>
+                     <section class="section">
+            	
+                <dir class="mi">
+                 
+              
+                   
+                    <div class="header">
+                      <ul class="ul1" >
+                        <li>
+                            <label > Usuario</label>
+                            <input type="text" placeholder="Ingrese Su Cedula" id="txtcedula1"/><br> 
+                            <label >Clave</label>
+                            <input type="password" placeholder="Ingrese Su  Clave" id="clavetxt"/>
+                       
+                        </li>
+                  
+                         <br>
+                        <li >
+                            <button id="btnconsultar" >Ingresar</button>
+                          
+                         </li>
+                   </ul>
+                   </div>
+                   
+                
+	
+
+              </dir>
+            </section>
+           
+          
+
+           
+ <aside class="aside">
+             
+
+               <div class="container1 " align="center">
+                     <strong>Dato general</strong>
+        </p> <hr>
+        <p class="art-layout-cell" style="color: rgb(74, 74, 74); padding: 0px 20px;">
+        	<img src="imag/farma.gif"width="350x" height="200px" border="1px" >
+        <br>
+
+        <h4>Identifiacion</h4>
+              
+      <input type="text"  placeholder=""  readonly="readonly"  id="mcedula"/><br><br>
+                             
+                          
+              </div>
+            </aside>
+<header class="header1">
+
+               tipo de productos<br>
+        <select id="tipo" >
+                   <option ></option> 
+                         <option >Pañaleras/niños</option> 
+                          <option >Medicina Gneral</option>
+                           <option >Vitaminas/Estimulantes</option> 
+                            
+                           
+                           
+                                 </select><br><br>
+        Fechas de turnos disponibles<br>
+       <select id="Periodo">
+                   <option >01/02/2020 </option> 
+                         <option >02/02/2020</option> 
+                           <option ></option>
+                              <option >03/02/2020</option> 
+                               <option >04/02/2020</option> 
+                                   <option >05/02/2020</option> 
+                                    <option >06/02/2020</option> 
+                                 </select><br><br>
+                            
+                                 Jornada:<br>
+       <select id="horario">
+                   <option >Matutino</option> 
+                         <option >Verpertino</option> 
+                           
+                                 </select><br><br>
+
+                                   <button class="boton" id="btnguardar" >SOLICITAR TURNO</button>   
+              
+            </header>
+
+        </div> 
+       
+                
+                <p align="center">MANTA - MANABÍ - ECUADOR © Copyright 2020</p>
+
+        
+	
+</body>
+
+</html>

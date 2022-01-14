@@ -1,0 +1,125 @@
+body{
+	
+	font-family: monospace;
+}
+.container{
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: auto 10px auto 10px auto;
+
+}
+.container{
+	width: 965px;
+	background: white;
+	margin: auto;
+}
+
+
+
+
+
+
+}
+.header{
+	grid-row:1; 
+
+background: white;
+}
+   
+	.menu {
+	display: inline-block;
+	text-align: right;
+	list-style: none ;
+	float: right;
+
+   
+	}
+.menu li{
+	float: right;
+}
+.menu li{
+	margin: 15px;
+}
+.menu a{
+	color: black;
+	text-decoration: none;
+	font-size: 13px;
+  font-family: Roboto, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+  font-weight: normal;
+  font-style: normal;
+  padding: 20px;
+
+}
+.menu a:hover{
+	background: #b52025;
+}
+.ul1{
+  display: inline-block;
+  text-align: right;
+  list-style: none ;
+  float: right;
+  font-family: Roboto, Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+  font-weight: normal;
+  font-style: normal;
+  color: black;
+}
+.ul1 a:hover{
+
+  background: #b52025;
+}
+
+  
+
+.bo {
+	
+
+  color: black;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: Roboto, Arial, 'negrita', Helvetica, Sans-Serif;
+  font-weight: normal;
+  font-style: normal;
+  padding: 10px;
+
+
+}
+.section{
+	grid-column: 1;
+	grid-row: 3;
+
+	padding: 15px;
+	
+
+}
+
+.mi{
+	margin-top: 30px;
+	margin-bottom:90px; 
+}
+.visi {  
+
+	width: 200px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: justify;
+
+
+}
+
+
+/*redes sociales*/
+
+.social{
+ position: fixed;
+ padding: 150px;
+ 
+ 
+}
+.social li{
+	list-style-type: none;
+}
+	
+	
+	
+
+

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+   <head>
+	 <meta charset="utf-8">
+    <title>FARMAPRODUCT</title>
+    <link href="css/estilore.css" rel="stylesheet">
+   
+  
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script>
+    
+    <script>
+      
+      var config = {
+     apiKey: "AIzaSyCmvaJbqQ28hzyt3AqfFtEEuLPe3_xI5_0",
+     authDomain: "matricula-alumnos.firebaseapp.com",
+     databaseURL: "https://matricula-alumnos.firebaseio.com",
+     projectId: "matricula-alumnos",
+     storageBucket: "matricula-alumnos.appspot.com",
+     messagingSenderId: "973755164597"
+   };
+   firebase.initializeApp(config);
+  var database = firebase.database();
+        window.addEventListener('load',function(){
+            
+            let consultar= document.querySelector('#btnconsultar');
+            let guardar= document.querySelector('#btnguardar');
+              
+ 
+ 
+               let cedula= document.querySelector('#txtcedula');
+            let nombre= document.querySelector('#txtnombre'); 
+            let telefono= document.querySelector('#txttelefono'); 
+            let correo= document.querySelector('#txtcorreo'); 
+            let clave= document.querySelector('#txtclave');
+ 
+          guardar.addEventListener('click',function(){
+                firebase.database().ref('turno/'+ cedula.value ).set({
+ 
+          
+                cedula: cedula.value,
+                nombre: nombre.value,
+                telefono: telefono.value,
+                correo: correo.value,
+                clave: clave.value
+                  
+                 
+                })
+                cedula.value="",
+                    nombre.value="",
+                    telefono.value="",
+                        correo.value="",
+                          clave.value="";
+                alert("PRESIONA LA IMAGEN ");
+            });  
+ 
+ 
+ 
+            
+        })
+ 
+    </script> 
+ 
+  
+  </head>
+
+   <body background="imag/bg.gif">
+   	
+         <div class="container">
+         	 <div class="header">
+                  <img src="imag/img1.jpg" alt="">
+                 
+            </div>
+         
+             <ul class="menu">
+                   
+               
+                  <a href="index.html" class="bo"><img src="imag/regresar.gif"width="150x" height="100px" border="1px"></a>
+                       
+                     </ul>
+                   
+           
+            <section class="section">
+            	<img src="imag/mage.gif" border="1px">
+                <dir class="mi">
+                 
+              
+                   <p><font face=" Helvetica">
+                   "Ahora puedes pedir tus medicinas a la puerta de tu hogar"
+               </font></p>
+              
+              </dir>
+            </section>
+            <aside class="aside">
+             
+
+               <div class="container1 " align="center">
+                       <h1>Ingrese Sus Datos Para Registrarse</h1>
+          
+                          
+                                <h3>Sus Nombres</h3>
+              
+                                  <input type="text"  placeholder="Ingrese Su Nombre" id="txtnombre"/>
+
+                                 <h3>Su Email</h3>
+                              
+                                   <input type="text" placeholder="Ingrese Su  Email" id="txtcorreo"/>
+                          
+                                 <h3>Telefono</h3>
+                                
+                                   <input type="text" placeholder="Ingrese Su Telefono" id="txttelefono"/>
+                                 
+                              
+                                 <h3> Cedula</h3>
+                                 <input type="text" placeholder="" id="txtcedula"/><br>
+
+                                   <h3>Contraseña</h3>
+                                     <input type="password" placeholder="Ingrese su contraseña" id="txtclave"/>
+                            
+                                 <br> <br>
+                                <button class="boton" id="btnguardar" >GUARDAR</button> 
+                                <br> 
+                              
+
+                                <p class="art-layout-cell" style="color: rgb(74, 74, 74); padding: 0px 20px;">
+           <a href="usuario.html" class="bo"><img src="imag/clic.gif"width="200x" height="150px" border="1px"></a>
+
+                   
+       
+              </div>
+   
+                
+            </aside>
+            
+             <header class="header1">
+                  <img src="imag/farm4.gif" width="250px" height="150px">
+               
+              
+            </header>
+
+        </div> 
+      
+                
+                <p align="center">MANTA - MANABÍ - ECUADOR © Copyright 2020</p>
+
+       
+
+   	
+   		
+   	
+   </body>
+
+</htmal>
